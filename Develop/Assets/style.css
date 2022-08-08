@@ -35,26 +35,36 @@ justify-content: center;
   height: 80px;
   border-top: 1px solid white;
 }
+ul{  /*Styling for the timeblocks to take full width*/
+  padding: 0px;
+}
+
+.input{ 
+  flex: 0 0 80%;
+}
 
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  padding:15px;
+  margin-bottom: 0px;
+  flex: 0 0 10%;
 }
 
 .past {
   background-color: #d3d3d3;
-  color: white;
+  color: black
 }
 
-.present {
+.current {
   background-color: #ff6961;
-  color: white;
+  color: black;
 }
 
 .future {
   background-color: #77dd77;
-  color: white;
+  color: black;
 }
 
 .saveBtn {
@@ -63,6 +73,7 @@ justify-content: center;
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
+  flex: 0 0 10%;
 }
 
 .saveBtn i:hover {
