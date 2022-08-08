@@ -1,99 +1,162 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# Weekday Planner
 
-## Your Task
+### I've implemented a planner from an incomplete code. 
 
-Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+#### Below i have detailed the process of making this possible.
 
-You'll need to use the [Moment.js](https://momentjs.com/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Moment.js in the browser.
+<br>
 
-## User Story
+Link to live site: https://michaelw1996.github.io/Week_planner/
 
-```md
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
+<br>
 
-## Acceptance Criteria
+## Structure & changes based on width via media query [Expected behaviour]:
 
-```md
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
-```
+Header:
 
-The following animation demonstrates the application functionality:
+    Top of the Page, formed of 2 parts, a heading (my name) and naviation items that send the user down the page to the appropiate section on the page. A glow is present when hovering over as an indication that the element can be clicked
 
-![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
+    Behaviour (mobile):
+
+        Elements are stacked vertically
+        Nav items take up full width
+
+    Behaviour (tablet):
+
+        Nav items now display in line, but are still under the heading
+        Nav items now take up only the width required by their content, and are centre aligned
+
+    Behaviour (desktop):
+
+        Heading & Nav items now all in a line
+        Nav items now take up only the width required by their content, and are aligned to the right
+
+Hero Image:
+
+    A faded background image with Heading and a profile picture displayed on top
+
+    Behaviour (mobile):
+
+        Elements stacked vertically
+        All center aligned
+
+    Behaviour (tablet):
+
+        Elements now horizontal with large gap, with vertical alignment (both being half way up the background image)
+
+    Behaviour (desktop):
+
+        As before, but heading Now moved vertically to the bottom
+
+About Me:
+
+    A heading & Paragraph giving a breif bio
+
+    Behaviour (mobile & tablet):
+
+        Elements stacked vertically
+
+    Behaviour (desktop):
+
+        Heading moves to left, in alignnment with Work Heading, a black border also appears
+
+Work:
+
+    A heading & cards detailing services with images demostrating the particular service also linking to relevant site, a glow is present when hovering over as an indication that the element can be clicked
+
+    Behaviour (mobile):
+
+        Heading and cards vertically aligned
+        Cards all same size, full width of page, stacked vertically, card text at bottom of each card
+
+    Behaviour (tablet):
+
+        Card text moved to top of card
+
+    Behaviour (desktop):
+
+        Heading now taking up left side
+        Cards are stacked 2 per row in remaining space
+        first card takes space of 2 normal cards
+        Card text is now top left
+
+Contact: 
+
+    List of links to Github, email and LinkedIn, elements glow to signal that they can be clicked
+
+    Behaviour (mobile & tablet):
+
+        Links vertically aligned taking full width
+
+    Behaviour (desktop):
+
+        Links horizontally aligned, width determined by content, aligned to centre of page
+        Black border appears above
+
+Footer: 
+
+    Note at bottom of page, no changes to element by width   
 
 
-## Grading Requirements
+Screenshots below
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+Mobile:
 
-This Challenge is graded based on the following criteria: 
+![Live site](./assets/images/Mobile%20top.jpg)
 
-### Technical Acceptance Criteria: 40%
+<br>
 
-* Satisfies all of the above acceptance criteria plus the following:
+![Live site](./assets/images/Mobile%20Work.jpg)
 
-  * Uses a date utility library to work with date and time
+<br>
 
-### Deployment: 32%
+![Live site](./assets/images/Mobile%20bottom.jpg)
 
-* Application deployed at live URL
+<br>
 
-* Application loads with no errors
+Tablet:
 
-* Application GitHub URL submitted
+![Live site](./assets/images/Tablet%20top.jpg)
 
-* GitHub repo contains application code
+<br>
 
-### Application Quality: 15%
+![Live site](./assets/images/Tablet%20Work.jpg)
 
-* Application user experience is intuitive and easy to navigate
+<br>
 
-* Application user interface style is clean and polished
+![Live site](./assets/images/Tablet%20bottom.jpg)
 
-* Application resembles the mock-up functionality provided in the Challenge instructions
+<br>
 
-### Repository Quality: 13%
+Desktop:
 
-* Repository has a unique name
+![Live site](./assets/images/Desktop%20Top.jpg)
 
-* Repository follows best practices for file structure and naming conventions
+<br>
 
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
+![Live site](./assets/images/Desktop%20work.jpg)
 
-* Repository contains multiple descriptive commit messages
+<br>
 
-* Repository contains quality README file with description, screenshot, and link to deployed application
+![Live site](./assets/images/Desktop%20bottom.jpg)
 
-## Review
+<br>
 
-You are required to submit the following for review:
 
-* The URL of the deployed application
+## Code notes
 
-* The URL of the GitHub repository, with a unique name and a README describing the project
+HTML:
 
-- - -
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+    Made use of different containers through the page attemping to use specific sematic elements to limit the need to lots of ids and classes in the CSS
+
+CSS:
+
+    Added notes to CSS to explain elements involved and effects
+    Notes added to Media Quueries to explain purpose and effects
+
+Accesibility
+
+    Accesility should be good on the site thanks to use of appropriate HTML containers as well as adding in alternative text for images using the "alt=" attribute on the <img> tags.
+
+
+Coded by Michael Walters
