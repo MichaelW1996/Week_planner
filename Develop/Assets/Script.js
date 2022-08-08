@@ -1,82 +1,56 @@
-var today = moment()
+var now = moment() //current time
 
-var TodaysDate = today.format("dddd Do MMMM YYYY");
+var TodaysDate = now.format("dddd Do MMMM YYYY"); // Variable of todays date with the current time parsed in the desired format
 $("#currentDay").text(TodaysDate);
-
-
 
 // this works, but is not mine
 
-const store = window.localStorage;
+const store = window.localStorage; //replace
 
-const container = $(".container");
+const container = document.getElementById("container")
+var timeListEl = document.createElement('ul')
 
-const now = moment();
+var classSort = function(hour,cHour,inputEl){ //asigns class based on if slot is checks if timeslot is 
+  if(hour == cHour){ //the current hour 
+    inputEl.classList.add("current");
+    console.log(hour + " this is current")
+  } else if (hour < cHour){ //in the past
+    inputEl.classList.remove("current");
+    inputEl.classList.add("past");
+    console.log(hour + " this is past")
+  } else { //or in the future
+    inputEl.classList.remove("past");
+    inputEl.classList.remove("current");
+    inputEl.classList.add("future");
+    console.log(hour+ ' This is future')
+  }}
 
-const currentTime = { text: moment().format("h:00 A"), hour: moment().hour() };
+  var saveNotes = function(event){window.alert(event.target)}
 
-$("#day").text(now.format("dddd MMMM DD, YYYY"));
+for(let i=9;i <= 17;i++){ //starts at 9(9am), ends at 17(5pm)
+  var timeBlockEl = document.createElement('li')
+  timeBlockEl.classList.add("time-block")
+  var timeEl = document.createElement('p')
+  var timeInput = document.createElement('input')
+  timeInput.type = "text"
+  var timeSaveButton = document.createElement('button')
+  timeSaveButton.classList.add("saveBtn")
+  timeSaveButton.textContent ="Save"
+  timeSaveButton.addEventListener("click",saveNotes)
 
-const range = (start, end, step) => {
-  return Array.from(
-    Array.from(Array(Math.ceil((end - start) / step)).keys()),
-    (x) => start + x * step
-  );
-};
+  var cHour = moment().format('HH') //Current time
+  timeEl.textContent=i+":00"; //Adds :00 minutes
+  
+  classSort(i,cHour,timeInput) // runs function to find if timeslot is in the past,present or future
 
-const hoursOfTheDay = Array.from(new Array(24)).map((v, i) => {
-  const text = moment().hour(i).format("h:00 A");
-  const hour = moment().hour(i);
-  return { text, hour };
-});
-
-function color(time) {
-  return time.text === currentTime.text
-    ? "bg-red-300"
-    : time.hour < now
-    ? "bg-gray-300"
-    : "bg-green-200";
+  timeBlockEl.appendChild(timeEl)
+  timeBlockEl.appendChild(timeInput)
+  timeBlockEl.appendChild(timeSaveButton)
+  timeListEl.appendChild(timeBlockEl)
+ 
+  //spawn new object for each hour
 }
 
-hoursOfTheDay.forEach((hr) => {
-  const grid = $(
-    `<form data-name="${hr.text}" class="time-block hour row"></form>.`
-  );
+container.appendChild(timeListEl)
 
-  const time = $(
-    `<div class="hour">${hr.text}</div>`
-  );
 
-  const textArea = $(
-    `<textarea name="${
-      hr.text
-    }" maxLength="50" class="textarea" ${color(
-      hr
-    )}">${store.getItem(hr.text) || ""}</textarea>`
-  );
-
-  textArea.keydown((e) => {
-    if (e.keyCode == 13 && !e.shiftKey) {
-      e.preventDefault();
-      return false;
-    }
-  });
-
-  const saveButton = $(
-    `<button type="submit" class="saveBtn"><i class="fas fa-save text-xl"></i></button>`
-  );
-
-  grid.submit((e) => {
-    e.preventDefault();
-
-    const value = $(`textarea[name="${hr.text}"]`).val();
-
-    store.setItem(hr.text, value);
-  });
-
-  grid.append(time);
-  grid.append(textArea);
-  grid.append(saveButton);
-
-  container.append(grid);
-});
