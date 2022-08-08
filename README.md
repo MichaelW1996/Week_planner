@@ -10,153 +10,45 @@ Link to live site: https://michaelw1996.github.io/Week_planner/
 
 <br>
 
-## Structure & changes based on width via media query [Expected behaviour]:
+## Implemented Weekday planer:
 
-Header:
+Creation of elements:
 
-    Top of the Page, formed of 2 parts, a heading (my name) and naviation items that send the user down the page to the appropiate section on the page. A glow is present when hovering over as an indication that the element can be clicked
+    I used JavaScript to create elements dynamically, by doing this i can change the hours in the planner by only changing variables "DayStart" & "DayEnd" to the desired times in 24hr format
 
-    Behaviour (mobile):
+    This was implemented using for loops that start at "i" = "DayStart" and ends when "i" equal or greater than "DayEnd", as the loop progresses i use the "i" variable to print the time as well as to label the item with an id in an #Hour-i format.
 
-        Elements are stacked vertically
-        Nav items take up full width
+    The generated content for each hour is comprised of the hour on the left, an input text box in the center and a save button on the right
 
-    Behaviour (tablet):
+Time based changes:
 
-        Nav items now display in line, but are still under the heading
-        Nav items now take up only the width required by their content, and are centre aligned
+    At the top of the page i have displayed the current time in my desired format using MomentJS 
 
-    Behaviour (desktop):
+    I have then used the current time obtained with MomentJS to style the input text boxes depending on if this timeslot is in the past, present or future, this was done with conditional logic using if statements that compares the "hour" variable used to describe the slots hour with the current hour from MomentJS called "cHour". Depending on which is greater or if they are equal the blocks will be given a class which will style the text box accordingly
 
-        Heading & Nav items now all in a line
-        Nav items now take up only the width required by their content, and are aligned to the right
+Local storage:
 
-Hero Image:
+    I used a function "saveNotes" to store the the time slot and value in the text box to the local storage, this function is triggered by the save button on each time slot
 
-    A faded background image with Heading and a profile picture displayed on top
+    Each time the page is loaded a "for loop" is run that checks through the local storage and displays values that have been saved in local storage to the appropriate text box, this has been done in a "for loop" to avoid repetition and to allow for this service to scale in the same manner depending on the "DayStart" and "DayEnd" variables
 
-    Behaviour (mobile):
+Screenshot of deployed site:
 
-        Elements stacked vertically
-        All center aligned
-
-    Behaviour (tablet):
-
-        Elements now horizontal with large gap, with vertical alignment (both being half way up the background image)
-
-    Behaviour (desktop):
-
-        As before, but heading Now moved vertically to the bottom
-
-About Me:
-
-    A heading & Paragraph giving a breif bio
-
-    Behaviour (mobile & tablet):
-
-        Elements stacked vertically
-
-    Behaviour (desktop):
-
-        Heading moves to left, in alignnment with Work Heading, a black border also appears
-
-Work:
-
-    A heading & cards detailing services with images demostrating the particular service also linking to relevant site, a glow is present when hovering over as an indication that the element can be clicked
-
-    Behaviour (mobile):
-
-        Heading and cards vertically aligned
-        Cards all same size, full width of page, stacked vertically, card text at bottom of each card
-
-    Behaviour (tablet):
-
-        Card text moved to top of card
-
-    Behaviour (desktop):
-
-        Heading now taking up left side
-        Cards are stacked 2 per row in remaining space
-        first card takes space of 2 normal cards
-        Card text is now top left
-
-Contact: 
-
-    List of links to Github, email and LinkedIn, elements glow to signal that they can be clicked
-
-    Behaviour (mobile & tablet):
-
-        Links vertically aligned taking full width
-
-    Behaviour (desktop):
-
-        Links horizontally aligned, width determined by content, aligned to centre of page
-        Black border appears above
-
-Footer: 
-
-    Note at bottom of page, no changes to element by width   
-
-
-Screenshots below
-
-Mobile:
-
-![Live site](./assets/images/Mobile%20top.jpg)
-
-<br>
-
-![Live site](./assets/images/Mobile%20Work.jpg)
-
-<br>
-
-![Live site](./assets/images/Mobile%20bottom.jpg)
-
-<br>
-
-Tablet:
-
-![Live site](./assets/images/Tablet%20top.jpg)
-
-<br>
-
-![Live site](./assets/images/Tablet%20Work.jpg)
-
-<br>
-
-![Live site](./assets/images/Tablet%20bottom.jpg)
-
-<br>
-
-Desktop:
-
-![Live site](./assets/images/Desktop%20Top.jpg)
-
-<br>
-
-![Live site](./assets/images/Desktop%20work.jpg)
-
-<br>
-
-![Live site](./assets/images/Desktop%20bottom.jpg)
-
-<br>
-
+![Live site](./assets/images/LiveSite.jpg)
 
 ## Code notes
 
 HTML:
 
-    Made use of different containers through the page attemping to use specific sematic elements to limit the need to lots of ids and classes in the CSS
+    No Changes from starter code made
 
 CSS:
 
-    Added notes to CSS to explain elements involved and effects
-    Notes added to Media Quueries to explain purpose and effects
+   Minor changes made to CSS, around ul element and .input class, this is to make the content fill the width of the page 
 
-Accesibility
+JS:
 
-    Accesility should be good on the site thanks to use of appropriate HTML containers as well as adding in alternative text for images using the "alt=" attribute on the <img> tags.
+    Code functionality explained with a number of notes and in the above section 
 
 
 Coded by Michael Walters

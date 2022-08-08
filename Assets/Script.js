@@ -1,4 +1,6 @@
 var now = moment() //current time
+var DayStart = 9 //start of day 24hr format
+var DayEnd = 17 //End of day 24hr format
 
 var TodaysDate = now.format("dddd Do MMMM YYYY"); // Variable of todays date with the current time parsed in the desired format
 $("#currentDay").text(TodaysDate);
@@ -25,7 +27,7 @@ var classSort = function(hour,cHour,inputEl){ //asigns class based on if slot is
     localStorage.setItem(time,value);
   }//when save button pressed, do this
 
-for(let i=9;i <= 17;i++){ //starts at 9(9am), ends at 17(5pm)
+for(let i=DayStart;i <= DayEnd;i++){ //starts at 9(9am), ends at 17(5pm)
   var timeBlockEl = document.createElement('li') //list item creation 
   timeBlockEl.classList.add("time-block") //applies class to list items
   var timeEl = document.createElement('p') //creates P element to take time
@@ -49,13 +51,11 @@ for(let i=9;i <= 17;i++){ //starts at 9(9am), ends at 17(5pm)
   timeBlockEl.appendChild(timeSaveButton) //appends save button to list item 
   timeBlockEl.id="Hour-"+i
   timeListEl.appendChild(timeBlockEl) //appends list item to list 
- 
-  
 }
 
 container.appendChild(timeListEl) //appends list to container
 
-for(let i=9;i <= 17;i++){ //looks for data in local storage and displays 
+for(let i=DayStart;i <= DayEnd;i++){ //looks for data in local storage and displays 
   var item = "Hour-"+i //generates time key for searching local storage
   var id = "#"+item //generates the input box's ID based that is to receive the data
 
